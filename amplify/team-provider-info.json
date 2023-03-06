@@ -1,0 +1,28 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-linechatgpt35tubobot-dev-184510-authRole",
+      "UnauthRoleArn": "arn:aws:iam::179333317237:role/amplify-linechatgpt35tubobot-dev-184510-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::179333317237:role/amplify-linechatgpt35tubobot-dev-184510-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-linechatgpt35tubobot-dev-184510-deployment",
+      "UnauthRoleName": "amplify-linechatgpt35tubobot-dev-184510-unauthRole",
+      "StackName": "amplify-linechatgpt35tubobot-dev-184510",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:179333317237:stack/amplify-linechatgpt35tubobot-dev-184510/965eea80-bc03-11ed-981d-06875bc5bf97",
+      "AmplifyAppId": "d7aqys91yuckn"
+    },
+    "categories": {
+      "function": {
+        "lineChatGPTBot35TuboDemoFunction": {
+          "deploymentBucketName": "amplify-linechatgpt35tubobot-dev-184510-deployment",
+          "s3Key": "amplify-builds/lineChatGPTBot35TuboDemoFunction-49744130777663484733-build.zip",
+          "secretsPathAmplifyAppId": "d7aqys91yuckn",
+          "baseSecretPath": "/amplify/d7aqys91yuckn/dev/AMPLIFY_lineChatGPTBot35TuboDemoFunction_"
+        }
+      },
+      "api": {
+        "linechatbot35tuboapi": {}
+      }
+    }
+  }
+}

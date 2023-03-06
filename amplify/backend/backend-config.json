@@ -1,0 +1,59 @@
+{
+  "api": {
+    "linechatbot35tuboapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "lineChatGPTBot35TuboDemoFunction"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "lineChatGPTBot35TuboDemoFunction": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_lineChatGPTBot35TuboDemoFunction_baseSecretPath": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lineChatGPTBot35TuboDemoFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_lineChatGPTBot35TuboDemoFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lineChatGPTBot35TuboDemoFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_lineChatGPTBot35TuboDemoFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lineChatGPTBot35TuboDemoFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_lineChatGPTBot35TuboDemoFunction_secretsPathAmplifyAppId": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lineChatGPTBot35TuboDemoFunction"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "lambdaLayers": [],
+  "secretNames": [
+    "LINE_CHANNEL_ACCESS_TOKEN",
+    "OPEN_AI_API_KEY",
+    "LINE_CHANNEL_SECRET"
+  ],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "baseSecretPath",
+      "environmentVariableName": "BASE_SECRET_PATH"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "resource": "/v1/line/bot/message/reply",
+  "path": "/v1/line/bot/message/reply",
+  "httpMethod": "POST",
+  "headers": {
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-ASN": "38631",
+    "CloudFront-Viewer-Country": "JP",
+    "content-type": "application/json; charset=utf-8",
+    "Host": "XXXXXXXX.execute-api.ap-northeast-1.amazonaws.com",
+    "User-Agent": "LineBotWebhook/2.0",
+    "Via": "2.0 XXXXXXXXXXXXXXXXX.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "XXXXXXXX-kycTppHM_7toIzjUK18ETDlyyHcoSTsCRYJ4bZg==",
+    "X-Amzn-Trace-Id": "Root=1-XXXXXXXXXXXXXXXXX-5ace8f454b058c1e5d59683d",
+    "X-Forwarded-For": "XXX.92.149.168, XX.132.8.135",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https",
+    "x-line-signature": "XXXXXXXXXXXXX+tlRE3VE1hnI2WotQ6QXsvoBgU23g4xco="
+  },
+  "multiValueHeaders": {
+    "CloudFront-Forwarded-Proto": ["https"],
+    "CloudFront-Is-Desktop-Viewer": ["true"],
+    "CloudFront-Is-Mobile-Viewer": ["false"],
+    "CloudFront-Is-SmartTV-Viewer": ["false"],
+    "CloudFront-Is-Tablet-Viewer": ["false"],
+    "CloudFront-Viewer-ASN": ["38631"],
+    "CloudFront-Viewer-Country": ["JP"],
+    "content-type": ["application/json; charset=utf-8"],
+    "Host": ["XXXXXXXX.execute-api.ap-northeast-1.amazonaws.com"],
+    "User-Agent": ["LineBotWebhook/2.0"],
+    "Via": ["2.0 XXXXXXXXXXXXXXXXX.cloudfront.net (CloudFront)"],
+    "X-Amz-Cf-Id": ["XXXXXXXX-kycTppHM_7toIzjUK18ETDlyyHcoSTsCRYJ4bZg=="],
+    "X-Amzn-Trace-Id": ["Root=1-XXXXXXXXXX-5ace8f454b058c1e5d59683d"],
+    "X-Forwarded-For": ["XXX.92.149.168, XX.132.8.135"],
+    "X-Forwarded-Port": ["443"],
+    "X-Forwarded-Proto": ["https"],
+    "x-line-signature": ["XXXXXXXX+tlRE3VE1hnI2WotQ6QXsvoBgU23g4xco="]
+  },
+  "queryStringParameters": null,
+  "multiValueQueryStringParameters": null,
+  "pathParameters": null,
+  "stageVariables": null,
+  "requestContext": {
+    "resourceId": "eb55XX",
+    "resourcePath": "/v1/line/bot/message/reply",
+    "httpMethod": "POST",
+    "extendedRequestId": "XXXXXXErnNjMF3aQ=",
+    "requestTime": "02/Feb/2023:05:37:05 +0000",
+    "path": "/dev/v1/line/bot/message/reply",
+    "accountId": "179333317237",
+    "protocol": "HTTP/1.1",
+    "stage": "dev",
+    "domainPrefix": "XXXXXXXX",
+    "requestTimeEpoch": 1675316225357,
+    "requestId": "XXXXXXXX-c9d8-46b8-b65e-c5799b8a57f0",
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "sourceIp": "XXX.92.149.168",
+      "principalOrgId": null,
+      "accessKey": null,
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "LineBotWebhook/2.0",
+      "user": null
+    },
+    "domainName": "XXXXXXXX.execute-api.ap-northeast-1.amazonaws.com",
+    "apiId": "XXXXXXXX"
+  },
+  "body": {
+    "destination": "XXXXXXXXXXX671b806a9eb52a22ee4ef4",
+    "events": [
+      {
+        "type": "message",
+        "message": {
+          "type": "text",
+          "id": "17573821279580",
+          "text": "ChatGPTの特徴は？"
+        },
+        "webhookEventId": "XXXXXXXXXXXN8CED1VMSBM8TXSYP",
+        "deliveryContext": { "isRedelivery": false },
+        "timestamp": 1675316224777,
+        "source": {
+          "type": "user",
+          "userId": "XXXXXXXXXXXX80fdc0ab95c536b858bc275dc"
+        },
+        "replyToken": "XXXXXXXXXXX9fe054435a27491dbf691a6db",
+        "mode": "active"
+      }
+    ]
+  },
+  "isBase64Encoded": false
+}
