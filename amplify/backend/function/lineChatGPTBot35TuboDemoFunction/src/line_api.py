@@ -2,7 +2,7 @@ import json
 from linebot import LineBotApi
 from linebot.models import TextSendMessage
 import const
-import gpt3_api
+import chatgpt_api
 import app_logger
 
 logger = app_logger.init()
@@ -31,7 +31,7 @@ def reply_message(event):
             prompt = event_body['events'][0]['message']['text']
 
             # Call the GPT3 API to get the completed text
-            completed_text = gpt3_api.completions(prompt)
+            completed_text = chatgpt_api.completions(prompt)
 
             # Remove any leading/trailing white spaces from the response message
             response_message = completed_text.strip()

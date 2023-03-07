@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b16a0bd991449744e1c2b5b8682e6851e07dac69741e55df39d567d3066e44e5"
+            "sha256": "83acd04f04a98bed042c94d1608472e9e002aec45c7960c3820fe191fa242122"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -135,19 +135,19 @@
         },
         "boto3": {
             "hashes": [
-                "sha256:7ab7bb335b726e2f472b5c050028198d16338560c83c40b2bd2bd4e4018ec802",
-                "sha256:d97176a7ffb37539bc53671cb0bf1c5b304f1c78bbd748553df549a9d4f92a9e"
+                "sha256:9afe405c71bfd13fa958637caec9dc91f7009b221a7d87d4b067fa6f262aab67",
+                "sha256:ae106bdc5ac6e693100a2dba5ea1c9cfa6e556f6f39944fa8b3af6b104eeccf3"
             ],
             "index": "pypi",
-            "version": "==1.26.84"
+            "version": "==1.26.85"
         },
         "botocore": {
             "hashes": [
-                "sha256:0f976427ad0a2602624ba784b5db328a865c2e9e0cc1bb6d8cffb6c0a2d177e1",
-                "sha256:a36f7f6f8eae5dbd4a1cc8cb6fc747f6315500541181eff2093ee0529fc8e4bc"
+                "sha256:1f2d1f7e3b41f8c9cc5576be16d86552a46724fd5d15f38a50c002a957ac43ff",
+                "sha256:cb7e7e88a09ba807956643849b3a9b4e343a2c117838c0be1ca660052f69bcd2"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==1.29.84"
+            "version": "==1.29.85"
         },
         "certifi": {
             "hashes": [
@@ -356,6 +356,14 @@
             "markers": "python_version >= '3.7'",
             "version": "==6.0.4"
         },
+        "openai": {
+            "hashes": [
+                "sha256:0efa486016283607cb72c23eac346ac739a22613ff4bff101df72a138cb2de60",
+                "sha256:7d4066ea529658a1f1696a8766912b3f3b7139faca860dc530bf102f0b19d42c"
+            ],
+            "index": "pypi",
+            "version": "==0.27.0"
+        },
         "python-dateutil": {
             "hashes": [
                 "sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86",
@@ -391,6 +399,14 @@
         "src": {
             "editable": true,
             "path": "./src"
+        },
+        "tqdm": {
+            "hashes": [
+                "sha256:1871fb68a86b8fb3b59ca4cdd3dcccbc7e6d613eeed31f4c332531977b89beb5",
+                "sha256:c4f53a17fe37e132815abceec022631be8ffe1b9381c2e6e30aa70edc99e9671"
+            ],
+            "markers": "python_version >= '3.7'",
+            "version": "==4.65.0"
         },
         "urllib3": {
             "hashes": [

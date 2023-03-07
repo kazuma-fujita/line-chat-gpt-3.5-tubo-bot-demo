@@ -3,34 +3,35 @@ import openai
 import const
 
 # OpenAI API endpoint for completions
-GPT3_COMPLETIONS_ENDPOINT = 'https://api.openai.com/v1/completions'
+# GPT3_COMPLETIONS_ENDPOINT = 'https://api.openai.com/v1/completions'
 
 # Model name
 GPT3_MODEL = 'gpt-3.5-turbo'
 
 # API request headers
-HEADERS = {
-    'Content-Type': 'application/json',
-    'Authorization': f'Bearer {const.OPEN_AI_API_KEY}'
-}
+# HEADERS = {
+#     'Content-Type': 'application/json',
+#     'Authorization': f'Bearer {const.OPEN_AI_API_KEY}'
+# }
 
 # Maximum number of tokens to generate
-MAX_TOKENS = 1000
+# MAX_TOKENS = 1000
 
 # Controls the randomness of the generated text
-TEMPERATURE = 0.5
+# TEMPERATURE = 0.5
 
 # Number of completions to generate
-GENERATE_COMPLETIONS_COUNT = 1
+# GENERATE_COMPLETIONS_COUNT = 1
 
 # Specifies the token at which to stop generating completions
-STOP = None
+# STOP = None
 
 
 def completions(prompt):
     try:
+        openai.api_key = const.OPEN_AI_API_KEY
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+            model=GPT3_MODEL,
             messages=[
                 {"role": "user", "content": f"{prompt}"}
             ]
