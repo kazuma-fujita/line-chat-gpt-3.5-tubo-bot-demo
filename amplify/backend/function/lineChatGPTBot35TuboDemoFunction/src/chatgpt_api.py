@@ -33,6 +33,7 @@ def completions(prompt):
         response = openai.ChatCompletion.create(
             model=GPT3_MODEL,
             messages=[
+                {"role": "system", "content": "敬語を使うのをやめてください。友達のようにタメ口で話してください。また、絵文字をたくさん使って話してください。"},
                 {"role": "user", "content": f"{prompt}"}
             ]
         )
