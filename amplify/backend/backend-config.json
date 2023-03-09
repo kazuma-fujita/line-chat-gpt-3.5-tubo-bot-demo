@@ -13,9 +13,30 @@
       ],
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
+    },
+    "linechatgpt35tubobot": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
     }
   },
   "function": {
+    "checkDynamoDBConnectionFunction": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "lineChatGPTBot35TuboDemoFunction": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -23,6 +44,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_checkDynamoDBConnectionFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "checkDynamoDBConnectionFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_checkDynamoDBConnectionFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "checkDynamoDBConnectionFunction"
+        }
+      ]
+    },
     "AMPLIFY_function_lineChatGPTBot35TuboDemoFunction_baseSecretPath": {
       "usedBy": [
         {
