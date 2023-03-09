@@ -15,7 +15,7 @@ GPT3_MODEL = 'gpt-3.5-turbo'
 # }
 
 # Maximum number of tokens to generate
-# MAX_TOKENS = 1000
+MAX_TOKENS = 1500
 
 # Controls the randomness of the generated text
 # TEMPERATURE = 0.5
@@ -27,15 +27,16 @@ GPT3_MODEL = 'gpt-3.5-turbo'
 # STOP = None
 
 
-def completions(prompt):
+def completions(prompts):
+    system_message = [{'role': 'system', 'content': '敬語を使うのをやめてください。友達のようにタメ口で話してください。また、絵文字をたくさん使って話してください。'}]
+    messages = system_message + prompts
+    print(f"prompts:{messages}")
     try:
         openai.api_key = const.OPEN_AI_API_KEY
         response = openai.ChatCompletion.create(
             model=GPT3_MODEL,
-            messages=[
-                {'role': 'system', 'content': '敬語を使うのをやめてください。友達のようにタメ口で話してください。また、絵文字をたくさん使って話してください。'},
-                {'role': 'user', 'content': f'{prompt}'}
-            ]
+            messages=messages,
+            max_tokens=MAX_TOKENS
         )
         return response['choices'][0]['message']['content']
     except Exception as e:

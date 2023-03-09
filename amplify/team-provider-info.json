@@ -15,13 +15,13 @@
       "function": {
         "lineChatGPTBot35TuboDemoFunction": {
           "deploymentBucketName": "amplify-linechatgpt35tubobot-dev-184510-deployment",
-          "s3Key": "amplify-builds/lineChatGPTBot35TuboDemoFunction-586e636d4a62474b6252-build.zip",
+          "s3Key": "amplify-builds/lineChatGPTBot35TuboDemoFunction-57742b35457339463576-build.zip",
           "secretsPathAmplifyAppId": "d7aqys91yuckn",
           "baseSecretPath": "/amplify/d7aqys91yuckn/dev/AMPLIFY_lineChatGPTBot35TuboDemoFunction_"
         },
         "checkDynamoDBConnectionFunction": {
           "deploymentBucketName": "amplify-linechatgpt35tubobot-dev-184510-deployment",
-          "s3Key": "amplify-builds/checkDynamoDBConnectionFunction-66317143772f71325245-build.zip"
+          "s3Key": "amplify-builds/checkDynamoDBConnectionFunction-33414c57744d4a384546-build.zip"
         }
       },
       "api": {

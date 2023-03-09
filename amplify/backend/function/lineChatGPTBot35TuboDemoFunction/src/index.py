@@ -27,6 +27,7 @@ def handler(event, context):
 
         # Call line_api module to send a reply to the incoming event
         line_api.reply_message(event)
+
     except Exception as e:
         # Log the error
         logger.error(e)
