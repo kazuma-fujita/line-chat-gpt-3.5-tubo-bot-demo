@@ -1,3 +1,4 @@
+# import asyncio
 import openai
 import const
 import logging
@@ -11,6 +12,7 @@ GPT3_MODEL = 'gpt-3.5-turbo'
 MAX_TOKENS = 1024
 
 
+# async def completions(chat_histories):
 def completions(chat_histories):
     # Create a new dict list of a system
     system_prompts = [{'role': 'system', 'content': '敬語を使うのをやめてください。友達のようにタメ口で話してください。また、絵文字をたくさん使って話してください。'}]
@@ -20,6 +22,7 @@ def completions(chat_histories):
     logger.info(f"prompts:{messages}")
     try:
         openai.api_key = const.OPEN_AI_API_KEY
+        # response = await openai.ChatCompletion.create(
         response = openai.ChatCompletion.create(
             model=GPT3_MODEL,
             messages=messages,

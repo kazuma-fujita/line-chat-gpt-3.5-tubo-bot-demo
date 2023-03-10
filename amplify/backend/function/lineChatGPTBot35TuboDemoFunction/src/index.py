@@ -1,11 +1,10 @@
 import json
 import logging
 
-import chatgpt_api
 import guard
+import line_api
 import line_request_body_parser
 import message_repository
-import line_api
 
 logger = logging.getLogger()
 
@@ -17,7 +16,6 @@ def handler(event, context):
 
         # Parse the event body as a JSON object
         event_body = json.loads(event['body'])
-
         prompt_text = line_request_body_parser.get_prompt_text(event_body)
         line_user_id = line_request_body_parser.get_line_user_id(event_body)
         reply_token = line_request_body_parser.get_reply_token(event_body)
@@ -27,18 +25,10 @@ def handler(event, context):
 
         logger.info(prompt_text)
 
-        # Put a record of the user into the Messages table.
-        message_repository.insert_message(line_user_id, 'user', prompt_text)
-
-        # Query messages by Line user ID.
-        chat_histories = message_repository.fetch_chat_histories_by_line_user_id(line_user_id)
-
-        # Call the GPT3 API to get the completed text
-        completed_text = chatgpt_api.completions(chat_histories)
-
-        # Put a record of the assistant into the Messages table.
-        message_repository.insert_message(line_user_id, 'assistant', completed_text)
-
+        # completed_text = asyncio.run(message_repository.create_completed_text(line_user_id, prompt_text))
+        # loop = asyncio.get_event_loop()
+        # completed_text = loop.run_until_complete(message_repository.create_completed_text(line_user_id, prompt_text))
+        completed_text = message_repository.create_completed_text(line_user_id, prompt_text)
         # Reply the message using the LineBotApi instance
         line_api.reply_message_for_line(reply_token, completed_text)
 

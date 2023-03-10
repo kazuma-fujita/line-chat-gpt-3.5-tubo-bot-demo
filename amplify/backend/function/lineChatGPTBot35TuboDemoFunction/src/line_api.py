@@ -1,10 +1,6 @@
-import logging
-
 import const
 from linebot import LineBotApi
 from linebot.models import TextSendMessage
-
-logger = logging.getLogger()
 
 
 def reply_message_for_line(reply_token, completed_text):
