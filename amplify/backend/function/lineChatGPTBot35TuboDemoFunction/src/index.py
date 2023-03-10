@@ -1,10 +1,9 @@
 import json
 import guard
 import line_api
-import app_logger
+import logging
 
-# Initialize logger for the handler function
-logger = app_logger.init()
+logger = logging.getLogger()
 
 
 def handler(event, context):
@@ -18,9 +17,6 @@ def handler(event, context):
     Returns:
         dict: A JSON response with status code and body to be sent to the Line Platform
     """
-    # Log the incoming event data
-    logger.info(event)
-
     try:
         # Verify if the request is valid
         guard.verify_request(event)

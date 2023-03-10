@@ -1,36 +1,23 @@
-# import requests
 import openai
 import const
+import logging
 
-# OpenAI API endpoint for completions
-# GPT3_COMPLETIONS_ENDPOINT = 'https://api.openai.com/v1/completions'
+logger = logging.getLogger()
 
 # Model name
 GPT3_MODEL = 'gpt-3.5-turbo'
 
-# API request headers
-# HEADERS = {
-#     'Content-Type': 'application/json',
-#     'Authorization': f'Bearer {const.OPEN_AI_API_KEY}'
-# }
-
 # Maximum number of tokens to generate
-MAX_TOKENS = 1500
-
-# Controls the randomness of the generated text
-# TEMPERATURE = 0.5
-
-# Number of completions to generate
-# GENERATE_COMPLETIONS_COUNT = 1
-
-# Specifies the token at which to stop generating completions
-# STOP = None
+MAX_TOKENS = 1024
 
 
-def completions(prompts):
-    system_message = [{'role': 'system', 'content': '敬語を使うのをやめてください。友達のようにタメ口で話してください。また、絵文字をたくさん使って話してください。'}]
-    messages = system_message + prompts
-    print(f"prompts:{messages}")
+def completions(chat_histories):
+    # Create a new dict list of a system
+    system_prompts = [{'role': 'system', 'content': '敬語を使うのをやめてください。友達のようにタメ口で話してください。また、絵文字をたくさん使って話してください。'}]
+    # Create a new dict list of a prompt
+    history_prompts = list(map(lambda history: {"role": history["role"], "content": history["content"]}, chat_histories))
+    messages = system_prompts + history_prompts
+    logger.info(f"prompts:{messages}")
     try:
         openai.api_key = const.OPEN_AI_API_KEY
         response = openai.ChatCompletion.create(
@@ -42,28 +29,3 @@ def completions(prompts):
     except Exception as e:
         # Raise the exception
         raise e
-
-# def completions(prompt):
-#     """
-#     Sends a completion request to the OpenAI API for the given prompt and returns the generated text.
-
-#     :param prompt: The prompt for which completions are generated
-#     :return: The generated text
-#     """
-#     completions_data = {
-#         'prompt': prompt,
-#         'model': GPT3_MODEL,
-#         'max_tokens': MAX_TOKENS,
-#         'n': GENERATE_COMPLETIONS_COUNT,
-#         'stop': STOP,
-#         'temperature': TEMPERATURE
-#     }
-
-#     try:
-#         response = requests.post(GPT3_COMPLETIONS_ENDPOINT, headers=HEADERS, json=completions_data)
-#         response_json = response.json()
-#         # Return the generated text
-#         return response_json['choices'][0]['text']
-#     except Exception as e:
-#         # Raise the exception
-#         raise e

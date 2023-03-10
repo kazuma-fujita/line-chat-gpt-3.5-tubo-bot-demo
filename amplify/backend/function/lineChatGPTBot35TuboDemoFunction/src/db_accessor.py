@@ -28,6 +28,7 @@ def query_by_line_user_id(line_user_id: str, limit: int) -> list:
         # Limit the number of results
         'Limit': limit
     }
+
     try:
         # Call the query method of the DynamoDB client with the query parameters
         query_result = dynamodb.query(**query_params)
@@ -38,9 +39,7 @@ def query_by_line_user_id(line_user_id: str, limit: int) -> list:
         raise e
 
 
-def put(uid: str, role: str, content: str, now: datetime) -> None:
-    # Create a partition key
-    partition_key = str(uuid.uuid4())
+def put_message(partition_key: str, uid: str, role: str, content: str, now: datetime) -> None:
     # Create a dictionary of options for put_item
     options = {
         'TableName': TABLE_NAME,
