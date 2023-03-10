@@ -1,28 +1,46 @@
 import json
-import guard
-import line_api
 import logging
+
+import chatgpt_api
+import guard
+import line_request_body_parser
+import message_repository
+import line_api
 
 logger = logging.getLogger()
 
 
 def handler(event, context):
-    """
-    Main handler function to process incoming events and send replies.
-
-    Args:
-        event (dict): Incoming event data from the Line Platform
-        context (obj): AWS Lambda Context runtime methods and attributes
-
-    Returns:
-        dict: A JSON response with status code and body to be sent to the Line Platform
-    """
     try:
         # Verify if the request is valid
         guard.verify_request(event)
 
-        # Call line_api module to send a reply to the incoming event
-        line_api.reply_message(event)
+        # Parse the event body as a JSON object
+        event_body = json.loads(event['body'])
+
+        prompt_text = line_request_body_parser.get_prompt_text(event_body)
+        line_user_id = line_request_body_parser.get_line_user_id(event_body)
+        reply_token = line_request_body_parser.get_reply_token(event_body)
+        # Check if the event is a message type and is of text type
+        if prompt_text is None or line_user_id is None or reply_token is None:
+            raise Exception('Elements of the event body are not found.')
+
+        logger.info(prompt_text)
+
+        # Put a record of the user into the Messages table.
+        message_repository.insert_message(line_user_id, 'user', prompt_text)
+
+        # Query messages by Line user ID.
+        chat_histories = message_repository.fetch_chat_histories_by_line_user_id(line_user_id)
+
+        # Call the GPT3 API to get the completed text
+        completed_text = chatgpt_api.completions(chat_histories)
+
+        # Put a record of the assistant into the Messages table.
+        message_repository.insert_message(line_user_id, 'assistant', completed_text)
+
+        # Reply the message using the LineBotApi instance
+        line_api.reply_message_for_line(reply_token, completed_text)
 
     except Exception as e:
         # Log the error
